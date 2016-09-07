@@ -1,0 +1,5 @@
+elementclass testdef1234 {
+	aggregateIP1 :: AggregateIP();
+	input -> aggregateIP1;
+	aggregateIP1 -> output;
+}

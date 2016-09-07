@@ -1,29 +1,19 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
++*
+.dotest
+Makefile
+autom4te*
+bin
+click-buildtool
+click-compile
+config.cache
+config.h
+config.log
+config.mk
+config.status
+depcomp
+elementmap
+elementmap.xml
+installch
+man
+stamp-egroup
+stamp-h

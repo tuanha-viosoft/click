@@ -1,0 +1,8 @@
+elementclass ElementClass3 {
+	test   |
+	aCKResponder1 :: ACKResponder();
+	align1 :: Align();
+	input -> aCKResponder1;
+	aCKResponder1 -> output;
+	aCKResponder1[1] -> [1]output;
+}

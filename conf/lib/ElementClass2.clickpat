@@ -1,0 +1,7 @@
+elementclass ElementClass2 {
+	test  |
+	aCKResponder1 :: ACKResponder();
+	input -> aCKResponder1;
+	aCKResponder1 -> output;
+	aCKResponder1[1] -> [1]output;
+}
