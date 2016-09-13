@@ -36,9 +36,26 @@
 #include <signal.h>
 #include <dirent.h>
 #include <stdarg.h>
+#include <fstream>
 
 VariableEnvironment global_scope(0);
 bool ignore_line_directives = false;
+
+//phongtn add removeComment function
+std::string removeComment(const char * inputPath){
+	std::string source;
+	std::ifstream readFile(inputPath);
+	getline(readFile, source, '\0');
+	while(source.find("/*") != std::string::npos) {
+		size_t Beg = source.find("/*");
+		source.erase(Beg, (source.find("*/", Beg) - Beg)+2);
+	}
+	while(source.find("//") != std::string::npos) {
+		size_t Beg = source.find("//");
+		source.erase(Beg, source.find("\n", Beg) - Beg);
+	}
+	return source;
+}
 
 int
 click_maybe_define(const char *arg, ErrorHandler *errh)
@@ -100,7 +117,9 @@ read_router_file(const char *filename, bool empty_ok, ErrorHandler *errh)
 
   // read file string
   int old_nerrors = errh->nerrors();
-  String s = file_string(filename, errh);
+  //String s = file_string(filename, errh);
+  std::string test = removeComment(filename);
+  String s = String(test.c_str());
   if (!s && errh->nerrors() != old_nerrors)
     return 0;
 
